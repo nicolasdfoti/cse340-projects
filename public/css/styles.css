@@ -3,4 +3,66 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  font-family: "Cardo", "serif";
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  max-width: 900px;
+  width: 100%;
+  border: 5px solid lightskyblue;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  margin: 70px auto;
+  justify-self: center;
+  z-index: 2;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header {
+  justify-content: space-around;
+}
+
+#top-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  width: 100%;
+  padding: 20px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 20px;
+  background-color: darkgray;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  padding: 10px;
+}
+
+a:hover {
+  background-color: black;
+  color: white;
+}
+
+.siteName a {
+  font-size: 40px;
+}
+
+#tools a {
+  font-size: 20px;
+}
+
+.image img {
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  height: auto;
 }
