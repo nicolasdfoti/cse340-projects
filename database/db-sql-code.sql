@@ -1,10 +1,9 @@
--- CREATE AND ALTER
+-- CREATE TYPE
+
+DROP TYPE IF EXISTS public.account_type;
 
 CREATE TYPE public.account_type AS ENUM
     ('Client', 'Employee', 'Admin');
-
-ALTER TYPE public.account_type
-    OWNER TO cse340;
 
 --Classification
 
@@ -256,4 +255,6 @@ SET inv_description = REPLACE(inv_description, 'the small interiors', 'a huge in
 -- 6
 UPDATE inventory
 SET inv_image = REPLACE(inv_image, '/images', '/images/vehicles');
+
+UPDATE inventory
 SET inv_thumbnail = REPLACE(inv_thumbnail, '/images', '/images/vehicles');
