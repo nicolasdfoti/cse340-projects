@@ -12,6 +12,8 @@ html {
   background-color: white;
 }
 
+/* Home */
+
 #principal-text {
   margin-top: 10px;
 }
@@ -171,6 +173,52 @@ h1 {
   margin: 5px;
 }
 
+/* Classification */
+
+#inv-display {
+  display: grid;
+  grid-template-columns: 1fr;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  border: none;
+}
+
+#inv-display li {
+  border: 2px solid black;
+  justify-items: center;
+  border-radius: 5px;
+  width: 270px;
+  height: fit-content;
+  margin: 10px;
+  padding: 10px;
+}
+
+#inv-display a {
+  color: black;
+  font-weight: bold;
+}
+
+#inv-display li img {
+  width: 250px;
+  height: auto;
+}
+
+.namePrice {
+  border: none;
+  font-size: 20px;
+  background-color: gray;
+  text-align: center;
+  width: 100%;
+  color: black;
+}
+
+#inv-display img {
+  padding: 10px;
+}
+
 @media screen and (min-width:1000px) {
 
   /* BODY */
@@ -224,4 +272,16 @@ h1 {
     margin: 0 10px 40px 10px;
   }
 
+  /* Classification */
+
+  #inv-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style: none;
+    justify-items: center;
+    flex-wrap: wrap;
+    border: none;
+  }
+
 }
+
