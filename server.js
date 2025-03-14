@@ -18,11 +18,11 @@ const baseController = require("./controllers/baseController")
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
-app.use(express.static("public"))
 
 /* ***********************
  * Routes
  *************************/
+app.use(require("./routes/static"))
 app.get("/", baseController.buildHome)
 
 // Index Route
