@@ -54,7 +54,7 @@ nav ul {
   justify-content: space-around;
 }
 
-a {
+nav a {
   text-decoration: none;
   color: white;
   font-size: 25px;
@@ -217,6 +217,32 @@ h1 {
 
 #inv-display img {
   padding: 10px;
+}
+
+/* Error Page */
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  font-size: 30px;
+}
+
+.error-page button {
+  text-align: center;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: gray;
+  color: white;
+  margin-top: 20px;
+}
+
+.error-page button:hover {
+  background-color: white;
+  color: black;
 }
 
 @media screen and (min-width:1000px) {
