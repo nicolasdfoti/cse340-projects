@@ -14,6 +14,10 @@ html {
 
 /* Home */
 
+body {
+  padding: 10px;
+}
+
 #principal-text {
   margin-top: 10px;
 }
@@ -41,6 +45,8 @@ nav {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  justify-self: center;
+  text-wrap: wrap;
   margin-top: 10px;
   font-size: 20px;
   padding: 10px;
