@@ -197,17 +197,14 @@ h1 {
 #inv-display {
   display: grid;
   grid-template-columns: 1fr;
-  list-style: none;
-  align-items: center;
-  justify-content: center;
   justify-items: center;
+  list-style: none;
   flex-wrap: wrap;
   border: none;
 }
 
 #inv-display li {
   border: 2px solid black;
-  justify-items: center;
   border-radius: 5px;
   width: 270px;
   height: fit-content;
@@ -228,7 +225,7 @@ h1 {
 .namePrice {
   border: none;
   font-size: 20px;
-  background-color: gray;
+  background-color: rgb(207, 207, 207);
   text-align: center;
   width: 100%;
   color: black;
@@ -354,8 +351,8 @@ h1 {
   /* Classification */
 
   #inv-display {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-evenly;
     list-style: none;
     justify-items: center;
     flex-wrap: wrap;
