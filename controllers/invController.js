@@ -26,17 +26,27 @@ invCont.buildByClassificationId = async function (req, res, next) {
  * ************************** */
 invCont.getInventoryItem = async function (req, res, next) {
 
-  const inventory_id = req.params.inventoryId;
-  const vehicleData = await invModel.getVehicleById(inventory_id);
-  const vehicleDetail = await utilities.buildVehicleDetail(vehicleData);
-  let nav = await utilities.getNav();
+  try {
+    const inventory_id = req.params.inventoryId;
+    const vehicleData = await invModel.getVehicleById(inventory_id);
 
-  res.render("inventory/detailedView", { 
-    title: `${vehicleData.inv_make} ${vehicleData.inv_model}`, 
-    nav,
-    vehicleDetail,
-  });
+    if (!vehicleData) {
+      let error = new Error(`Vehicle not found`);
+      error.status = 404;
+      throw error;
+    }
 
+    const vehicleDetail = await utilities.buildVehicleDetail(vehicleData);
+    let nav = await utilities.getNav();
+
+    res.render("inventory/detailedView", { 
+      title: `${vehicleData.inv_make} ${vehicleData.inv_model}`, 
+      nav,
+      vehicleDetail,
+    });
+  } catch (err) {
+    next(err);
+  }
 }
 
 module.exports = invCont
