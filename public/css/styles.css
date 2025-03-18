@@ -9,13 +9,27 @@
 }
 
 html {
-  background-color: white;
+  background-image: url("/images/site/small_check.jpg");
+  background-size: cover;
+  background-position: center center;
+  z-index: 0;
+  display: flex;
 }
 
-/* Home */
+/* Main */
 
 body {
-  padding: 10px;
+  background-color: white;
+  max-width: 900px;
+  width: 90%;
+  height: 100%;
+  border: 5px solid lightskyblue;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  margin: 70px auto;
+  z-index: 2;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #principal-text {
@@ -84,7 +98,6 @@ h1 {
 }
 
 .delorean-info {
-  
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 1));
   padding: 10px;
   color: rgba(0, 182, 223, 0.884);
@@ -251,6 +264,40 @@ h1 {
   color: black;
 }
 
+/* Inventory Item */
+
+#vehicle-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 20px;
+  align-items: center;
+  justify-items: center;
+}
+
+#detail-image img {
+  border: 3px solid gray;
+  width: fit-content;
+}
+
+#detail-info {
+  border-bottom: 3px solid gray;
+  width: 90%;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  background-color: rgb(187, 187, 187);
+  border-radius: 5px;
+}
+
+#detail-info strong {
+  text-decoration: underline;
+}
+
+#detail-info p {
+  font-size: 20px;
+  padding: 10px;
+}
+
 @media screen and (min-width:1000px) {
 
   /* BODY */
@@ -313,6 +360,18 @@ h1 {
     justify-items: center;
     flex-wrap: wrap;
     border: none;
+  }
+
+  /* Inventory Item */
+
+  #vehicle-detail {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+  }
+
+  #detail-info {
+    width: 100%;
   }
 
 }
