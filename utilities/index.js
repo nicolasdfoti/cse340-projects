@@ -73,7 +73,7 @@ Util.buildVehicleDetail = function(vehicle) {
 
   detail += '<div id="detail-info">';
   detail += `<p><strong>Year:</strong> ${vehicle.inv_year}</p>`;
-  detail += `<p><strong>Price:</strong> $${vehicle.inv_price.toLocaleString()}</p>`;
+  detail += `<p><strong>Price:</strong> $${Intl.NumberFormat('en-US').format(vehicle.inv_price)}</p>`;
   detail += `<p><strong>Mileage:</strong> ${vehicle.inv_miles.toLocaleString()} miles</p>`;
   detail += `<p><strong>Description:</strong> ${vehicle.inv_description}</p>`;
   detail += '</div>';
