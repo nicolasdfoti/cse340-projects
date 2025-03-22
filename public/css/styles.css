@@ -295,6 +295,66 @@ h1 {
   padding: 10px;
 }
 
+/* Login - Registration Page */
+
+.account-page {
+  display: flex;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: 20px;
+  color: white;
+}
+
+.account-page a {
+  color: white;
+}
+
+.account-page a:hover {
+  color: black;
+}
+
+form {
+  height: 100%;
+  background-color: gray;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+form h3 {
+  text-align: center;
+}
+
+form button {
+  width: 30%;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  justify-self: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: black;
+  color: white;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+}
+
+label {
+  padding: 20px;
+}
+
+fieldset {
+  align-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: none;
+}
+
 @media screen and (min-width:1000px) {
 
   /* BODY */

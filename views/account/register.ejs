@@ -1,0 +1,35 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+  <% } else {
+    res.redirect('/')
+  } %>
+
+<div class="account-page">
+
+    <div class="registration">
+
+        <form>
+
+            <fieldset>
+                <label for="fname">First Name<input type="text" name="fname" id="fname"></label>
+            <fieldset>
+
+            <fieldset>
+                <label for="lname">Last Name<input type="text" name="lname" id="lname"></label>
+            </fieldset>
+
+            <fieldset>
+                <label for="email">Email<input type="text" name="email" id="email"></label>
+            </fieldset>
+
+            <fieldset>
+                <label for="password">Password<input type="password" name="password" id="password"></label>
+            </fieldset>
+
+            <button>Sign Up!</button>
+
+        </form>
+
+    </div>
+
+</div>
