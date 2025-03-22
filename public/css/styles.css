@@ -355,6 +355,14 @@ fieldset {
   border: none;
 }
 
+:required {
+  border: 3px solid red;
+}
+
+:required:valid {
+  border: 3px solid green;
+}
+
 @media screen and (min-width:1000px) {
 
   /* BODY */
