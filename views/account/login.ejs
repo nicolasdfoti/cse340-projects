@@ -4,26 +4,32 @@
   res.redirect('/')
 } %>
 
-<div class="account-page"> 
+<p><%- messages() %></p>
 
-  <p><%= messages() %></p>
+<div class="account-page">
 
-  <form>
+  <div class="registration">
 
-    <fieldset>
+    <form>
 
-      <label for="email">Email<input type="text" name="email" id="email" required></label>
-      
-    </fieldset>
+      <fieldset>
+  
+        <label for="email">Email<input type="email" name="email" id="email" required></label>
+        
+      </fieldset>
+  
+      <fieldset>
+  
+        <label for="account_password">Password <span>(Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character)</span> <input type="password" name="account_password" id="password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"></label>
+        
+      </fieldset>
+  
+      <button>Sign In</button>
+  
+      <h3>No account? <a href="register">Sign up</a></h3>
+  
+    </form>
 
-    <fieldset>
-
-      <label for="password">Password<input type="text" name="password" id="password" required></label>
-      
-    </fieldset>
-
-    <h3>No account? <a href="register">Sign up</a></h3>
-
-  </form>
+  </div>
 
 </div>

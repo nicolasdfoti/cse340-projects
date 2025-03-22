@@ -8,22 +8,22 @@
 
     <div class="registration">
 
-        <form>
+        <form action="/account/register" method="post">
 
             <fieldset>
-                <label for="fname">First Name<input type="text" name="fname" id="fname" required></label>
+                <label for="account_firstname">First Name<input type="text" name="account_firstname" id="fname" required></label>
             <fieldset>
 
             <fieldset>
-                <label for="lname">Last Name<input type="text" name="lname" id="lname" required></label>
+                <label for="account_lastname">Last Name<input type="text" name="account_lastname" id="lname" required></label>
             </fieldset>
 
             <fieldset>
-                <label for="email">Email<input type="text" name="email" id="email" required></label>
+                <label for="account_email">Email<input type="email" name="account_email" id="email" required></label>
             </fieldset>
 
             <fieldset>
-                <label for="password">Password<input type="password" name="password" id="password" required></label>
+                <label for="account_password">Password <span>(Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character)</span> <input type="password" name="account_password" id="password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"></label>
             </fieldset>
 
             <button>Sign Up!</button>

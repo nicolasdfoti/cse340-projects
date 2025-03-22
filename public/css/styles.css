@@ -192,6 +192,15 @@ h1 {
   margin: 5px;
 }
 
+/* Flash Messages */
+
+#messages li {
+  font-size: 20px;
+  font-weight: bolder;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
 /* Classification */
 
 #inv-display {
@@ -295,7 +304,7 @@ h1 {
   padding: 10px;
 }
 
-/* Login - Registration Page */
+/* FORM: Login - Registration Page */
 
 .account-page {
   display: flex;
@@ -314,6 +323,8 @@ h1 {
 }
 
 form {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   background-color: gray;
   border: 3px solid black;
@@ -329,6 +340,7 @@ form button {
   padding: 10px;
   font-size: 20px;
   font-weight: bolder;
+  align-self: center;
   justify-self: center;
   margin-bottom: 5px;
   cursor: pointer;
@@ -361,6 +373,16 @@ fieldset {
 
 :required:valid {
   border: 3px solid green;
+}
+
+.registration {
+  max-width: 90%;
+  margin: 10px;
+}
+
+span {
+  font-style: italic;
+  font-size: 15px;
 }
 
 @media screen and (min-width:1000px) {
@@ -437,6 +459,11 @@ fieldset {
 
   #detail-info {
     width: 100%;
+  }
+
+  /* Login and Registration */
+  .registration {
+    max-width: 50%;
   }
 
 }
