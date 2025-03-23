@@ -19,6 +19,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
       title: className + " vehicles",
       nav,
       grid,
+      errors: null
     })
   } catch (err) {
     next(err);
@@ -41,6 +42,7 @@ invCont.getInventoryItem = async function (req, res, next) {
       title: `${vehicleData.inv_make} ${vehicleData.inv_model}`, 
       nav,
       vehicleDetail,
+      errors: null
     });
   } catch (err) {
     next(err);
