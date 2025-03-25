@@ -49,4 +49,24 @@ invCont.getInventoryItem = async function (req, res, next) {
   }
 }
 
+/* ***************************
+ *  Build inventory by item detail view
+ * ************************** */
+invCont.buildManagementView = async function (req, res, next) {
+
+  try {
+
+    let nav = await utilities.getNav();
+    res.render("inventory/management", {
+      title: "Management",
+      nav,
+      errors: null
+    })
+
+  } catch (err) {
+    next(err)
+  }
+
+}
+
 module.exports = invCont

@@ -312,6 +312,9 @@ h1 {
   font-weight: bolder;
   font-size: 20px;
   color: white;
+  width: 80%;
+  justify-self: center;
+  margin: 20px;
 }
 
 .account-page a {
@@ -375,14 +378,28 @@ fieldset {
   border: 3px solid green;
 }
 
-.registration {
-  max-width: 90%;
-  margin: 10px;
-}
-
 span {
   font-style: italic;
   font-size: 15px;
+}
+
+/* Management */
+
+.management {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.management a {
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.management a:hover {
+  color: gray;
 }
 
 @media screen and (min-width:1000px) {
@@ -462,7 +479,7 @@ span {
   }
 
   /* Login and Registration */
-  .registration {
+  .account-page {
     max-width: 50%;
   }
 
