@@ -28,6 +28,6 @@ router.get("/add-inventory", invController.addSelectionList);
 router.post("/add-classification", invValidate.classificationRules(), invValidate.checkClassData, utilities.handleErrors(invController.addClassification));
 
 // Process Inventory
-router.post("/add-inventory", utilities.handleErrors(invController.addInventory));
+router.post("/add-inventory", invValidate.inventoryRules(), invValidate.checkInventoryData, utilities.handleErrors(invController.addInventory));
 
 module.exports = router;
