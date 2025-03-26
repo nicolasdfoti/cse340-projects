@@ -1,16 +1,16 @@
 <% if (title) { %>
     <h1><%= title %></h1>
-  <% } else {
-    res.redirect('/')
-} %>
+<% } %>
+
+<%- messages() %>
 
 <div class="account-page">
 
-    <form action="/account/register" method="post">
+    <form method="post">
 
         <fieldset>
-            <label for="classification_name">First Name<input type="text" name="classification_name" id="classification_name" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"></label>
-        <fieldset>
+            <label for="classification_name">Classification name <span>The classification name should not have a space or any special characters</span><input type="text" name="classification_name" id="classification_name" required pattern="^[a-zA-Z0-9]+$"></label>
+        </fieldset>
 
         <button>Submit Classification</button>
 

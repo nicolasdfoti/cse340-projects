@@ -339,7 +339,7 @@ form h3 {
 }
 
 form button {
-  width: 30%;
+  width: 40%;
   padding: 10px;
   font-size: 20px;
   font-weight: bolder;
@@ -400,6 +400,14 @@ span {
 
 .management a:hover {
   color: gray;
+}
+
+/* Inventory */
+
+#classificationList {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
 }
 
 @media screen and (min-width:1000px) {

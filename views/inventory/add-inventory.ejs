@@ -1,18 +1,54 @@
 <% if (title) { %>
     <h1><%= title %></h1>
-  <% } else {
-    res.redirect('/')
-} %>
+<% } %>
+
+<%- messages() %>
 
 <div class="account-page">
 
-    <form action="/account/register" method="post">
+    <form action="/inv/add-inventory" method="post">
 
         <fieldset>
-            <label for="classification_name">First Name<input type="text" name="classification_name" id="classification_name" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"></label>
-        <fieldset>
+            <label for="inv_make">Item Name<input type="text" name="inv_make" id="inv_make" required value="<%= typeof inv_make !== 'undefined' ? inv_make : '' %>"></label>
+        </fieldset>        
 
-        <button>Submit Classification</button>
+        <fieldset>
+            <label for="inv_model">Item Model<input type="text" name="inv_model" id="inv_model" required></label>
+        </fieldset>
+
+        <fieldset>
+            <label for="inv_year">Item Year <span>(It must contain exactly four numbers!)</span><input type="number" name="inv_year" id="inv_year" required pattern="^\d{4}$"></label>
+        </fieldset>
+
+        <fieldset>
+            <label for="inv_description">Item Description<input type="text" name="inv_description" id="inv_description" required pattern="^[a-zA-Z0-9]+$"></label>
+        </fieldset>
+
+        <fieldset>
+            <label for="inv_image">Item Image Path<input type="text" name="inv_image" id="inv_image" required></label>
+        </fieldset>
+
+        <fieldset>
+            <label for="inv_thumbnail">Item Image Thumbnail<input type="text" name="inv_thumbnail" id="inv_thumbnail" required></label>
+        </fieldset>
+
+        <fieldset>
+            <label for="inv_price">Item Price<input type="number" name="inv_price" id="inv_price" required></label>
+        </fieldset>
+
+        <fieldset>
+            <label for="inv_miles">Item Miles<input type="number" name="inv_miles" id="inv_miles" required></label>
+        </fieldset>
+        
+        <fieldset>
+            <label for="inv_color">Item Color<input type="text" name="inv_color" id="inv_color" required></label>
+        </fieldset>
+
+        <fieldset>
+            <label for="classificationList">Item Classification <%- classificationList %></label>
+        </fieldset>
+
+        <button>Submit Inventory Item</button>
 
     </form>
 
