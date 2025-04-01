@@ -14,7 +14,7 @@ router.get("/detail/:inventoryId", invController.getInventoryItem);
 // Routes to Views!
 
 // Route to management view
-router.get("/", invController.buildManagementView);
+router.get("/management", invController.buildManagementView);
 
 // Route to Add Classification
 router.get("/add-classification", invController.buildManagementClassification);

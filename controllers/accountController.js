@@ -106,10 +106,6 @@ async function accountLogin(req, res) {
     return
   }
 
-  console.log('Contraseña ingresada:', account_password);
-  console.log('Contraseña de la base de datos:', accountData.account_password);
-  console.log('Comparando...', await bcrypt.compare(account_password, accountData.account_password));  
-
   try {
 
     if (await bcrypt.compare(account_password, accountData.account_password)) {
