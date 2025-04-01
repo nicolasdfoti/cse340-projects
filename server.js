@@ -14,7 +14,7 @@ const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
-const utilities = require("./utilities")
+const utilities = require("./utilities/")
 const errorRoute = require("./routes/errorRoute")
 const session = require("express-session")
 const pool = require('./database') 
@@ -47,6 +47,8 @@ app.use(function(req, res, next){
   next()
 })
 app.use(cookieParser())
+
+app.use(utilities.checkJWTToken)
 
 
 /* ***********************

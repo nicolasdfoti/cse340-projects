@@ -22,6 +22,6 @@ router.get("/register", utilities.handleErrors(accountController.buildRegister))
 router.post('/register', regValidate.registationRules(), regValidate.checkRegData, utilities.handleErrors(accountController.registerAccount));
 
 // Route to Account Management
-router.get("/account", utilities.handleErrors(accountController.buildAccountManagement));
+router.get("/account-management", utilities.handleErrors(accountController.buildAccountManagement));
 
 module.exports = router;
