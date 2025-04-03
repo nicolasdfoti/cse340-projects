@@ -28,6 +28,9 @@ router.get("/add-classification", invController.buildManagementClassification);
 // Get add-inventory view
 router.get("/add-inventory", invController.addSelectionList);
 
+// Get route to delete inventory item
+router.get("/delete/:inventoryId", invController.buildDeletingView);
+
 /* ---------------------- POST ROUTES ---------------------- */
 
 // Process to add classification
@@ -49,6 +52,11 @@ router.post("/update/",
     invValidate.newInventoryRules(),
     invValidate.checkUpdateData,
     utilities.handleErrors(invController.updateInventory)
+);
+
+// Process to delete inventory item
+router.post("/delete-confirm",
+    utilities.handleErrors(invController.deleteInventory)
 );
 
 module.exports = router;

@@ -1,0 +1,36 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } %>
+
+<%- messages() %>
+
+<div class="account-page">
+
+    <form id="updateForm" action="/inv/delete-confirm" method="post">
+
+        <fieldset>
+            <label for="inv_make">Item Name<input type="text" name="inv_make" id="inv_make" required value="<%= typeof inv_make !== 'undefined' ? inv_make : '' %>" readonly></label>
+        </fieldset>        
+
+        <fieldset>
+            <label for="inv_model">Item Model<input type="text" name="inv_model" id="inv_model" required value="<%= typeof inv_model !== 'undefined' ? inv_model : '' %>" readonly></label>
+        </fieldset>
+
+        <fieldset>
+            <label for="inv_year">Item Year <span>(It must contain exactly four numbers!)</span><input type="number" name="inv_year" id="inv_year" required pattern="^\d{4}$" value="<%= typeof inv_year !== 'undefined' ? inv_year : '' %>" readonly></label>
+        </fieldset>
+
+        <fieldset>
+            <label for="inv_price">Item Price<input type="number" name="inv_price" id="inv_price" required value="<%= typeof inv_price !== 'undefined' ? inv_price : '' %>" readonly></label>
+        </fieldset>
+
+        <input type="hidden" name="inv_id"
+        <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+        <% } %>>
+
+        <p>Confirm Deletion - The delete is permanent.</p>
+        <button type="submit">Delete Vehicle</button>
+
+    </form>
+
+</div>
