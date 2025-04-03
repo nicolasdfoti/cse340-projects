@@ -19,9 +19,12 @@ router.post("/login", regValidate.loginRules(), regValidate.checkLoginData, util
 router.get("/register", utilities.handleErrors(accountController.buildRegister));
 
 // Process Registration
-router.post('/register', regValidate.registationRules(), regValidate.checkRegData, utilities.handleErrors(accountController.registerAccount));
+router.post("/register", regValidate.registationRules(), regValidate.checkRegData, utilities.handleErrors(accountController.registerAccount));
 
 // Route to Account Management
 router.get("/account-management", utilities.checkLogin, utilities.handleErrors(accountController.buildAccountManagement));
+
+// Route to Update Account Info
+router.get("/update-account/:account_id", utilities.handleErrors(accountController.updateAccount))
 
 module.exports = router;

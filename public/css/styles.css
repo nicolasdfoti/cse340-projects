@@ -51,6 +51,15 @@ body {
   color: black;
 }
 
+#logged {
+  display: flex;
+  flex-direction: column;
+}
+
+#logged a {
+  text-align: right;
+}
+
 .siteName a:hover, #tools a:hover {
   color: gray;
 }
@@ -424,6 +433,22 @@ td, th {
   width: 100%;
   padding: 10px;
   font-size: 15px;
+}
+
+.account-management {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 20px auto;
+}
+
+.account-management a {
+  color: black;
+  cursor: pointer;
+}
+
+.account-management a:hover {
+  color: gray;
 }
 
 @media screen and (min-width:1000px) {

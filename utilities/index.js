@@ -160,4 +160,20 @@ Util.checkLogin = (req, res, next) => {
   }
 }
 
+/* ****************************************
+ *  Check Account Type
+ * ************************************ */
+Util.checkAccountType = (req, res, next) => {
+
+  const accountType = res.locals.accountData.account_type;
+
+  if (accountType == "Admin" || accountType == "Employee") {
+    next()
+  } else {
+    req.flash("notice", "Access denied!")
+    return res.redirect("/")
+  }
+}
+
+
 module.exports = Util

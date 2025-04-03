@@ -8,7 +8,7 @@ const invValidate = require('../utilities/inventory-validation');
 /* ---------------------- GET ROUTES ---------------------- */
 
 // Get inventory management view
-router.get("/management", invController.buildManagementView);
+router.get("/management", utilities.checkLogin, utilities.checkAccountType, invController.buildManagementView);
 
 // Get inventory by classification ID
 router.get("/type/:classificationId", invController.buildByClassificationId);
@@ -20,16 +20,16 @@ router.get("/detail/:inventoryId", invController.getInventoryItem);
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON));
 
 // Edit info of inventory item
-router.get("/edit/:inventoryId", utilities.handleErrors(invController.editItemInformation));
+router.get("/edit/:inventoryId", utilities.checkLogin, utilities.checkAccountType, utilities.handleErrors(invController.editItemInformation));
 
 // Get add-classification view
-router.get("/add-classification", invController.buildManagementClassification);
+router.get("/add-classification", utilities.checkLogin, utilities.checkAccountType, invController.buildManagementClassification);
 
 // Get add-inventory view
-router.get("/add-inventory", invController.addSelectionList);
+router.get("/add-inventory", utilities.checkLogin, utilities.checkAccountType, invController.addSelectionList);
 
 // Get route to delete inventory item
-router.get("/delete/:inventoryId", invController.buildDeletingView);
+router.get("/delete/:inventoryId", utilities.checkLogin, utilities.checkAccountType, invController.buildDeletingView);
 
 /* ---------------------- POST ROUTES ---------------------- */
 
