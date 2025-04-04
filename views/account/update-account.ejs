@@ -13,7 +13,6 @@
   <form action="/account/update-account" method="post">
 
     <input type="hidden" name="form_type" value="info">
-    <input type="hidden" name="account_id" value="<%= account_id %>">
 
     <fieldset>
       <label for="account_firstname">First Name<input type="text" name="account_firstname" id="account_firstname" required value="<%= typeof account_firstname !== 'undefined' ? account_firstname : '' %>"></label>  
@@ -26,6 +25,8 @@
     <fieldset>
       <label for="account_email">Email<input type="email" name="account_email" id="account_email" required value="<%= typeof account_email !== 'undefined' ? account_email : '' %>"></label>  
     </fieldset>
+
+    <input type="hidden" name="account_id" value="<%= account_id %>">
     
     <button>Update Account Information</button>  
 
@@ -45,6 +46,8 @@
     <fieldset>
       <label for="account_password">Password <span>(Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character)</span> <input type="password" name="account_password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"><button type="button" id="togglePassword">👁</button></label>
     </fieldset>
+
+    <span>This will change your password!!</span>
 
     <button>Update Account Password</button>  
 

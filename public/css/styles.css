@@ -337,6 +337,10 @@ h1 {
   color: black;
 }
 
+.account-page span {
+  text-align: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
