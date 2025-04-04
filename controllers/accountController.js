@@ -231,4 +231,69 @@ async function accountLogout (req, res, next) {
   res.redirect("/");
 }
 
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement, buildUpdateAccount, updateAccount, accountLogout };
+/* ****************************************
+*  Build Delete Account View
+* *************************************** */
+async function buildDeleteAccountView (req, res, next) {
+
+  let nav = await utilities.getNav();
+  const account_id = req.params.account_id;
+  const accountData = await accountModel.getAccountByID(account_id);
+  const accountName = accountData.account_firstname + " " + accountData.account_lastname;
+
+  res.render("account/delete-account", {
+    title: "Delete " + accountName,
+    nav,
+    errors: null,
+    account_id,
+    account_firstname: accountData.account_firstname,
+    account_lastname: accountData.account_lastname,
+    account_email: accountData.account_email,
+    account_password: accountData.account_password
+  });
+
+}
+
+
+/* ****************************************
+*  Delete Account Process
+* *************************************** */
+async function deleteAccount (req, res, next) {
+
+  let nav = await utilities.getNav();
+  const account_id = req.body.account_id;
+
+  const accountData = await accountModel.getAccountByID(account_id);
+
+  try {
+    const deleteResult = await accountModel.deleteAccount(account_id);
+
+    if (deleteResult) {
+      const accountName = accountData.account_firstname + " " + accountData.account_lastname;
+      req.flash("notice", `The ${accountName} account has been deleted`);
+      res.redirect("/");
+    }
+
+    else {
+      const accountName = accountData.account_firstname + " " + accountData.account_lastname;
+      req.flash("notice", `The process failed! Please try again`);
+      res.status(501).render("account/delete-account", {
+        nav,
+        errors: null,
+        title: "Delete " + accountName,
+        account_id,
+        account_firstname: accountData.account_firstname,
+        account_lastname: accountData.account_lastname,
+        account_email: accountData.account_email,
+        account_password: accountData.account_password
+      });
+      
+    }
+
+  } catch(error) {
+    console.error(error);
+  }
+
+}
+
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement, buildUpdateAccount, updateAccount, accountLogout, buildDeleteAccountView, deleteAccount };

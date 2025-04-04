@@ -33,4 +33,10 @@ router.post("/update-account", utilities.handleErrors(accountController.updateAc
 // Route to logout
 router.get("/logout", utilities.handleErrors(accountController.accountLogout))
 
+// Route to Delete Account
+router.get("/delete-account/:account_id", utilities.handleErrors(accountController.buildDeleteAccountView));
+
+// Process to Delete Account
+router.post("/delete-account", utilities.handleErrors(accountController.deleteAccount))
+
 module.exports = router;

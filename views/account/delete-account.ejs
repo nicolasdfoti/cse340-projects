@@ -1,0 +1,34 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+  <% } else {
+    res.redirect('/')
+} %>
+
+<h2>Delete Account</h2>
+
+<div class="account-page">
+
+    <form action="/account/delete-account" method="post">
+  
+      <input type="hidden" name="form_type" value="info">
+  
+      <fieldset>
+        <label for="account_firstname">First Name<input type="text" name="account_firstname" id="account_firstname" required value="<%= typeof account_firstname !== 'undefined' ? account_firstname : '' %>"></label>  
+      </fieldset>
+  
+      <fieldset>
+        <label for="account_lastname">Last Name<input type="text" name="account_lastname" id="account_lastname" required value="<%= typeof account_lastname !== 'undefined' ? account_lastname : '' %>"></label>  
+      </fieldset>
+  
+      <fieldset>
+        <label for="account_email">Email<input type="email" name="account_email" id="account_email" required value="<%= typeof account_email !== 'undefined' ? account_email : '' %>"></label>  
+      </fieldset>
+  
+      <input type="hidden" name="account_id" value="<%= account_id %>">
+      
+      <span>Are you sure you want to delete this account? This will be permanent!</span>
+      <button>Delete Account</button>  
+  
+    </form>
+
+</div>

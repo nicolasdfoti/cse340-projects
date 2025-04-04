@@ -65,6 +65,9 @@ async function updateData (account_firstname, account_lastname, account_email, a
   }
 }
 
+/* ***************************
+ *  Update Account Password
+ * ************************** */
 async function updatePassword (account_password, account_id) {
 
   try {
@@ -79,4 +82,21 @@ async function updatePassword (account_password, account_id) {
 
 }
 
-module.exports = {registerAccount, getAccountByEmail, getAccountByID, updateData, updatePassword};
+/* ***************************
+ *  Delete Account
+ * ************************** */
+async function deleteAccount(account_id) {
+
+  try {
+    const sql = "DELETE FROM account WHERE account_id = $1 RETURNING *";
+
+    const data = await pool.query(sql, [account_id]);
+    return data.rows[0];
+
+  } catch(error) {
+    console.error("model error: " + error);
+  }
+}
+
+
+module.exports = {registerAccount, getAccountByEmail, getAccountByID, updateData, updatePassword, deleteAccount};
