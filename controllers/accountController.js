@@ -52,18 +52,22 @@ async function buildAccountManagement(req, res, next) {
 /* ****************************************
 *  Deliver update account information view
 * *************************************** */
-async function updateAccount(req, res, next) {
+async function buildUpdateAccount(req, res, next) {
 
   let nav = await utilities.getNav()
   const account_id = req.params.account_id;
+  const accountData = await accountModel.getAccountByID(account_id);
 
   res.render("account/update-account", {
     title: "Update Account Information",
+    account_id: accountData.account_id,
+    account_firstname: accountData.account_firstname,
+    account_lastname: accountData.account_lastname,
+    account_email: accountData.account_email,
+    account_password: accountData.account_password,
     nav,
     errors: null,
-    account_id
   })
-
 }
 
 /* ****************************************
@@ -153,4 +157,68 @@ async function accountLogin(req, res) {
   }
 }
 
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement, updateAccount };
+/* ****************************************
+*  Process Update Info
+* *************************************** */
+async function updateAccount(req, res, next) {
+  
+  let nav = await utilities.getNav()
+  const formType = req.body.form_type;
+  const account_id = req.body.account_id;
+
+  if (formType === "info") {
+
+    const { account_firstname, account_lastname, account_email } = req.body;
+  
+    const updateResult = await accountModel.updateData(
+      account_firstname,
+      account_lastname,
+      account_email,
+      account_id
+    )
+        
+    if (updateResult) {
+      const accountName = updateResult.account_firstname + " " + updateResult.account_lastname
+      req.flash("notice", `The ${accountName} account was successfully updated.`)
+      res.redirect("account-management")
+    } 
+      
+    else {
+      const accountName = `${account_firstname} ${account_lastname}`
+      req.flash("notice", "Sorry, the update failed.")
+      res.status(501).render("/update-account", {
+      title: "Update " + accountName + " account",
+      nav,
+      account_firstname,
+      account_lastname,
+      account_email,
+      account_id
+      })
+    }
+  }
+
+  else if (formType === "password") {
+
+    const { account_password } = req.body;
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(account_password, salt);
+
+    const updateResult = await accountModel.updatePassword(hashedPassword, account_id)
+
+    if (updateResult) {
+      req.flash("notice", `The password was successfully updated.`)
+      res.redirect("account-management")
+    } 
+
+    else {
+      req.flash("notice", "Sorry, the update failed.")
+      res.status(501).render("/update-account", {
+      title: "Update account",
+      nav,
+      account_id
+      })
+    }
+  }
+}
+
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement, buildUpdateAccount, updateAccount };

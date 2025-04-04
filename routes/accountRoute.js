@@ -25,6 +25,9 @@ router.post("/register", regValidate.registationRules(), regValidate.checkRegDat
 router.get("/account-management", utilities.checkLogin, utilities.handleErrors(accountController.buildAccountManagement));
 
 // Route to Update Account Info
-router.get("/update-account/:account_id", utilities.handleErrors(accountController.updateAccount))
+router.get("/update-account/:account_id", utilities.handleErrors(accountController.buildUpdateAccount))
+
+// Process Update Account Info
+router.post("/update-account", utilities.handleErrors(accountController.updateAccount))
 
 module.exports = router;
