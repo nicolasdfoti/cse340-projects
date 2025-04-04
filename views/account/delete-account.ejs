@@ -13,15 +13,15 @@
       <input type="hidden" name="form_type" value="info">
   
       <fieldset>
-        <label for="account_firstname">First Name<input type="text" name="account_firstname" id="account_firstname" required value="<%= typeof account_firstname !== 'undefined' ? account_firstname : '' %>"></label>  
+        <label for="account_firstname">First Name<input type="text" name="account_firstname" id="account_firstname" disabled required value="<%= typeof account_firstname !== 'undefined' ? account_firstname : '' %>"></label>  
       </fieldset>
   
       <fieldset>
-        <label for="account_lastname">Last Name<input type="text" name="account_lastname" id="account_lastname" required value="<%= typeof account_lastname !== 'undefined' ? account_lastname : '' %>"></label>  
+        <label for="account_lastname">Last Name<input type="text" name="account_lastname" id="account_lastname" disabled required value="<%= typeof account_lastname !== 'undefined' ? account_lastname : '' %>"></label>  
       </fieldset>
   
       <fieldset>
-        <label for="account_email">Email<input type="email" name="account_email" id="account_email" required value="<%= typeof account_email !== 'undefined' ? account_email : '' %>"></label>  
+        <label for="account_email">Email<input type="email" name="account_email" id="account_email" disabled required value="<%= typeof account_email !== 'undefined' ? account_email : '' %>"></label>  
       </fieldset>
   
       <input type="hidden" name="account_id" value="<%= account_id %>">
