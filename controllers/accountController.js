@@ -221,4 +221,14 @@ async function updateAccount(req, res, next) {
   }
 }
 
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement, buildUpdateAccount, updateAccount };
+/* ****************************************
+*  Logout Process
+* *************************************** */
+async function accountLogout (req, res, next) {
+
+  res.clearCookie("jwt");
+  req.sessionId = null;
+  res.redirect("/");
+}
+
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement, buildUpdateAccount, updateAccount, accountLogout };

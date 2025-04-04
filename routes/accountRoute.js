@@ -30,4 +30,7 @@ router.get("/update-account/:account_id", utilities.handleErrors(accountControll
 // Process Update Account Info
 router.post("/update-account", utilities.handleErrors(accountController.updateAccount))
 
+// Route to logout
+router.get("/logout", utilities.handleErrors(accountController.accountLogout))
+
 module.exports = router;
