@@ -271,6 +271,10 @@ async function deleteAccount (req, res, next) {
     if (deleteResult) {
       const accountName = accountData.account_firstname + " " + accountData.account_lastname;
       req.flash("notice", `The ${accountName} account has been deleted`);
+
+      res.clearCookie("jwt");
+      req.session.destroy();
+      
       res.redirect("/");
     }
 
